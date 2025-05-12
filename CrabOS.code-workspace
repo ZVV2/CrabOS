@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "crab_core"
+		},
+		{
+			"path": "crab_magic"
+		},
+		{
+			"path": "crab_rpi"
+		}
+	],
+	"settings": {}
+}
