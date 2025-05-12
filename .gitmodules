@@ -1,0 +1,3 @@
+[submodule "libs/SpellBox"]
+	path = libs/SpellBox
+	url = https://github.com/SamuelNoesslboeck/SpellBox.git
