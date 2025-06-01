@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "crab_rpi"
+		},
+		{
+			"path": "include"
 		}
 	],
 	"settings": {}
