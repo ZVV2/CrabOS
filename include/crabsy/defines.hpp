@@ -1,5 +1,8 @@
 # pragma once
 
+# define CRABSY_LEG_COUNT 6
+# define CRABSY_SERVOS_PER_LEG 3
+
 /// The current version of the software
 # define CRABSY_SOFTWARE_VERSION "0.1.0/2025/06/01"
 

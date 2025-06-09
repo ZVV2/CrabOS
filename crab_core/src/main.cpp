@@ -9,8 +9,11 @@
 # include <crabsy/core.hpp>
 # include <sylo/logging.hpp>
 
+# define LOG_LEVEL LOG_LEVEL_TRACE
+
 // Local headers
 # include "crab_core.hpp"
+# include "move.hpp"
 
 using crabsy::Configuration;
 using crabsy::CoreState;
@@ -47,6 +50,12 @@ void setup() {
     log_info(CRABSY_SOFTWARE_VERSION);
     log_debugln("'");
     log_debugln("|");
+
+    log_info("> Starting setup ... ");
+
+    crab_core::move::setup();
+
+    log_info("| > Setup done!");
 }
 
 void loop() {
