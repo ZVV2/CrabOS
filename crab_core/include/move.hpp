@@ -7,9 +7,9 @@
 
 # include "crab_core.hpp"
 
-# define MIN_ANGLE 0
+# define MIN_ANGLE -90
 # define NEUTRAL_ANGLE ((MAX_ANGLE + MIN_ANGLE) / 2)
-# define MAX_ANGLE 180
+# define MAX_ANGLE 90
 
 # define MIN_DUTY ((uint16_t)((1.0 / 20.0) * 4096))
 # define NEUTRAL_DUTY ((MAX_DUTY + MIN_DUTY) / 2)
@@ -22,15 +22,15 @@ namespace crab_core {
 
         extern uint8_t servo_offsets [CRABSY_LEG_COUNT][CRABSY_SERVOS_PER_LEG];
 
-        extern uint16_t convert_to_duty(uint8_t angle, uint8_t leg_id, uint8_t servo_id);
+        extern uint16_t convert_to_duty(int8_t angle, uint8_t leg_id, uint8_t servo_id);
 
         extern void setup();
 
-        extern void apply_single_angle(uint8_t angle, uint8_t leg_id, uint8_t servo_id);
+        extern void apply_single_angle(int8_t angle, uint8_t leg_id, uint8_t servo_id);
 
-        extern void apply_angles_to_all_legs(uint8_t* angles);
+        extern void apply_angles_to_all_legs(int8_t* angles);
 
-        extern void apply_angle_to_all(uint8_t angle);
+        extern void apply_angle_to_all(int8_t angle);
 
         extern void apply_config(crabsy::ServoConfig config);
     }
