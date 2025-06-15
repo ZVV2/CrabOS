@@ -20,17 +20,17 @@ namespace crab_core {
         extern PCA9685 pwm_board_0;
         extern PCA9685 pwm_board_1;
 
-        extern uint8_t servo_offsets [CRABSY_LEG_COUNT][CRABSY_SERVOS_PER_LEG];
+        extern uint8_t servo_offset_list [CRABSY_LEG_COUNT][CRABSY_SERVOS_PER_LEG];
 
         extern uint16_t convert_to_duty(int8_t angle, uint8_t leg_id, uint8_t servo_id);
 
         extern void setup();
 
-        extern void apply_single_angle(int8_t angle, uint8_t leg_id, uint8_t servo_id);
+        extern void apply_single(int8_t angle, uint8_t leg_id, uint8_t servo_id);
 
-        extern void apply_angles_to_all_legs(int8_t* angles);
+        extern void apply_to_all_legs(int8_t* angle_list);
 
-        extern void apply_angle_to_all(int8_t angle);
+        extern void apply_to_all(int8_t angle);
 
         extern void apply_config(crabsy::ServoConfig config);
     }
