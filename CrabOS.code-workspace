@@ -13,5 +13,11 @@
 			"path": "include"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"*.script": "lua",
+			"*.Ive-Object": "json",
+			"cmath": "cpp"
+		}
+	}
 }

@@ -141,7 +141,7 @@ namespace crabsy {
         };
     /**/
 
-    /* ANGLES */
+    /* MOVEMENT */
         /// An array of angles for the Servomotors
         /// - The angles are in pairs of 3 for each leg
         typedef int8_t* ServoConfig;

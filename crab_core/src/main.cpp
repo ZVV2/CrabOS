@@ -7,6 +7,7 @@
 # include <Arduino.h>
 
 # include <crabsy/core.hpp>
+# include <crabsy/dimensions.hpp>
 # include <sylo/logging.hpp>
 
 # define LOG_LEVEL LOG_LEVEL_TRACE
@@ -55,9 +56,44 @@ void setup() {
 
     crab_core::move::setup();
 
-    log_info("| > Setup done!");
+    log_infoln("| > Setup done!");
+
+    crab_core::move::apply_default();
+
+    auto angles = crabsy::get_angles_seg2(crabsy::Seg2Coords {
+        CRABSY_SEG2_RADIUS,
+        -70.0
+    });
+
+    log_info("> Angles: Ang2: ");
+    log_info(angles.ang2);
+    log_info(", Ang3: ");
+    log_infoln(angles.ang3);
+
+    auto coords = crabsy::get_coords_seg2(angles);
+
+    log_info("> Coord: R: ");
+    log_info(coords.r);
+    log_info(", H: ");
+    log_infoln(coords.h);
 }
 
 void loop() {
+    // Going from 90 to 50
+    for (int i = 0; i < 10; i++) {
+        crab_core::move::apply_height(90 - i*4);
+        delay(100);
+    }
 
+    // Going from 50 to 130
+    for (int i = 0; i < 20; i++) {
+        crab_core::move::apply_height(50 + i*4);
+        delay(100);
+    }
+
+    // Going from 130 to 90
+    for (int i = 0; i < 10; i++) {
+        crab_core::move::apply_height(130 - i*4);
+        delay(100);
+    }
 }

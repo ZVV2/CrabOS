@@ -4,6 +4,7 @@
 # include <inttypes.h>
 
 # include <crabsy/core.hpp>
+# include <crabsy/dimensions.hpp>
 
 # include "crab_core.hpp"
 
@@ -26,12 +27,32 @@ namespace crab_core {
 
         extern void setup();
 
-        extern void apply_single(int8_t angle, uint8_t leg_id, uint8_t servo_id);
+        /* GENERAL */
+            extern void apply_default();
+        /**/
 
-        extern void apply_to_all_legs(int8_t* angle_list);
+        /* TIER 1 */
+            extern void apply_single(int8_t angle, uint8_t leg_id, uint8_t servo_id);
 
-        extern void apply_to_all(int8_t angle);
+            extern void apply_single_leg(int8_t* angle_list, uint8_t leg_id);
 
-        extern void apply_config(crabsy::ServoConfig config);
+            extern void apply_to_all_legs(int8_t* angle_list);
+
+            extern void apply_to_all(int8_t angle);
+
+            extern void apply_config(crabsy::ServoConfig config);
+        /**/
+
+        /* TIER 2 */
+            extern void apply_seg2_single(crabsy::Seg2Coords coords, uint8_t leg_id);
+
+            extern void apply_to_all_seg2(crabsy::Seg2Coords coords);
+
+            extern void apply_height(float height);
+        /**/
+
+        /* TIER 3 */
+            // extern void apply_seg3_single()
+        /**/
     }
 }
