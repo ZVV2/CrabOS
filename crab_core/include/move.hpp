@@ -31,7 +31,7 @@ namespace crab_core {
             extern void apply_default();
         /**/
 
-        /* TIER 1 */
+        /* TIER-1 */
             extern void apply_single(int8_t angle, uint8_t leg_id, uint8_t servo_id);
 
             extern void apply_single_leg(int8_t* angle_list, uint8_t leg_id);
@@ -43,16 +43,20 @@ namespace crab_core {
             extern void apply_config(crabsy::ServoConfig config);
         /**/
 
-        /* TIER 2 */
+        /* TIER-2 */
             extern void apply_seg2_single(crabsy::Seg2Coords coords, uint8_t leg_id);
 
-            extern void apply_to_all_seg2(crabsy::Seg2Coords coords);
+            extern void apply_seg2_to_all(crabsy::Seg2Coords coords);
 
             extern void apply_height(float height);
         /**/
 
-        /* TIER 3 */
+        /* TIER-3 */
             // extern void apply_seg3_single()
+        /**/
+
+        /* ROUTINES */
+            extern void stand_up(); 
         /**/
     }
 }
