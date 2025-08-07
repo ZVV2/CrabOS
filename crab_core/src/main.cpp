@@ -58,44 +58,22 @@ void setup() {
 
     log_infoln("| > Setup done!");
 
+
+    delay(1000);
     crab_core::move::stand_up();
 
-    // crab_core::move::apply_default();
+    for (uint8_t i = 0; i < 4; i++) {
+        crab_core::move::apply_height(70.0);
+        delay(500);
+        crab_core::move::apply_height(110.0);
+        delay(500);
+    }
 
-    // auto angles = crabsy::get_angles_seg2(crabsy::Seg2Coords {
-    //     CRABSY_SEG2_RADIUS,
-    //     -70.0
-    // });
+    crab_core::move::lay_down();
 
-    // log_info("> Angles: Ang2: ");
-    // log_info(angles.ang2);
-    // log_info(", Ang3: ");
-    // log_infoln(angles.ang3);
-
-    // auto coords = crabsy::get_coords_seg2(angles);
-
-    // log_info("> Coord: R: ");
-    // log_info(coords.r);
-    // log_info(", H: ");
-    // log_infoln(coords.h);
+    crab_core::move::trunk_mode();
 }
 
 void loop() {
-    // // Going from 90 to 50
-    // for (int i = 0; i < 10; i++) {
-    //     crab_core::move::apply_height(90 - i*4);
-    //     delay(100);
-    // }
 
-    // // Going from 50 to 130
-    // for (int i = 0; i < 20; i++) {
-    //     crab_core::move::apply_height(50 + i*4);
-    //     delay(100);
-    // }
-
-    // // Going from 130 to 90
-    // for (int i = 0; i < 10; i++) {
-    //     crab_core::move::apply_height(130 - i*4);
-    //     delay(100);
-    // }
 }

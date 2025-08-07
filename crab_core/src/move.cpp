@@ -149,23 +149,30 @@ namespace crab_core {
             void stand_up() {
                 // First move all legs into the air 
                 apply_height(0.0);
-                delay(800);
+                delay(750);
                 // Apply default position
                 apply_default();
-                delay(800);
+                delay(750);
             }
 
             void lay_down() {
                 apply_default();
                 delay(800);
-                apply_height(0.0);
-                delay(800);
+                
+                for (int i = 1; i <= 20; i++) {
+                    apply_seg2_to_all(crabsy::Seg2Coords {
+                        CRABSY_SEG2_RADIUS,
+                        CRABSY_SEG2_HEIGHT * (float)(20 - i) / (float)20.0
+                    });
+                    delay(75);
+                }
             }
 
             /// Positions the robot so it can easily be placed into the trunk
             void trunk_mode() {
                 int8_t trunk_pos[3] = { 0, 90, -90 };
                 apply_to_all_legs(trunk_pos);
+                delay(750);
 
                 // Narrow down legs
                 apply_single(-45, 1, 0);

@@ -57,6 +57,10 @@ namespace crab_core {
 
         /* ROUTINES */
             extern void stand_up(); 
+
+            extern void lay_down();
+
+            extern void trunk_mode();
         /**/
     }
 }
