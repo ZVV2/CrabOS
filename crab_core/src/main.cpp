@@ -58,20 +58,21 @@ void setup() {
 
     log_infoln("| > Setup done!");
 
+    crab_core::move::apply_default();
 
-    delay(1000);
-    crab_core::move::stand_up();
+    // delay(1000);
+    // crab_core::move::stand_up();
 
-    for (uint8_t i = 0; i < 4; i++) {
-        crab_core::move::apply_height(70.0);
-        delay(500);
-        crab_core::move::apply_height(110.0);
-        delay(500);
-    }
+    // for (uint8_t i = 0; i < 4; i++) {
+    //     crab_core::move::apply_height(70.0);
+    //     delay(500);
+    //     crab_core::move::apply_height(110.0);
+    //     delay(500);
+    // }
 
-    crab_core::move::lay_down();
+    // crab_core::move::lay_down();
 
-    crab_core::move::trunk_mode();
+    // crab_core::move::trunk_mode();
 }
 
 void loop() {

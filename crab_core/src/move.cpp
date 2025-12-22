@@ -40,7 +40,10 @@ namespace crab_core {
             pwm_board_1.setFrequency(SERVO_FREQ);
         }
         
-        /* GENERAL */
+        /* # GENERAL
+         * 
+         * General purpose functions for frequently used states 
+         */
             /// Applies the default state to all motorss
             void apply_default() {
                 apply_to_all(NEUTRAL_ANGLE);

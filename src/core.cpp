@@ -1,5 +1,7 @@
+# include "crabsy/core.hpp"
+
 namespace crabsy {
-    static bool is_operational(CoreState state) {
+    bool is_operational(CoreState state) {
         return (bool)(((uint8_t)state) & 0x20);
     }
 
