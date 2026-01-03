@@ -58,10 +58,10 @@ void setup() {
 
     log_infoln("| > Setup done!");
 
-    crab_core::move::apply_default();
+    // crab_core::move::apply_default();
 
-    // delay(1000);
-    // crab_core::move::stand_up();
+    delay(1000);
+    crab_core::move::stand_up();
 
     // for (uint8_t i = 0; i < 4; i++) {
     //     crab_core::move::apply_height(70.0);
