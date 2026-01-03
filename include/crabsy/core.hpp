@@ -34,9 +34,7 @@ namespace crabsy {
     /// Checks whether a state is operational or not
     /// @param state The state to check
     /// @return Wheither the state is operational or not
-    static bool is_operational(CoreState state) {
-        return (bool)(((uint8_t)state) & 0x20);
-    }
+    bool is_operational(CoreState state);
 
     /// Command-codes that can be sent to the bugsy to cause actions / acquire data
     enum class Command : uint8_t {
@@ -141,19 +139,17 @@ namespace crabsy {
         };
     /**/
 
-    /* ANGLES */
+    /* MOVEMENT */
         /// An array of angles for the Servomotors
         /// - The angles are in pairs of 3 for each leg
-        typedef uint8_t* ServoConfig;
+        typedef int8_t* ServoConfig;
 
         /// Returns a single servo angle out of a configuration
         /// @param config The `ServoConfig`
         /// @param leg_id The id of the leg which the servo is part of
         /// @param motor_id The motor id of the leg
         /// @return The servo angle
-        static uint8_t get_servo_angle(ServoConfig config, uint8_t leg_id, uint8_t motor_id) {
-            return config[leg_id * 3 + motor_id];
-        }
+        int8_t get_servo_angle(ServoConfig config, uint8_t leg_id, uint8_t motor_id);
     /**/
 
     /* CONFIGURATION */

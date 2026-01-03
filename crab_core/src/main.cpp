@@ -7,10 +7,14 @@
 # include <Arduino.h>
 
 # include <crabsy/core.hpp>
+# include <crabsy/dimensions.hpp>
 # include <sylo/logging.hpp>
+
+# define LOG_LEVEL LOG_LEVEL_TRACE
 
 // Local headers
 # include "crab_core.hpp"
+# include "move.hpp"
 
 using crabsy::Configuration;
 using crabsy::CoreState;
@@ -47,6 +51,28 @@ void setup() {
     log_info(CRABSY_SOFTWARE_VERSION);
     log_debugln("'");
     log_debugln("|");
+
+    log_info("> Starting setup ... ");
+
+    crab_core::move::setup();
+
+    log_infoln("| > Setup done!");
+
+    // crab_core::move::apply_default();
+
+    delay(1000);
+    crab_core::move::stand_up();
+
+    // for (uint8_t i = 0; i < 4; i++) {
+    //     crab_core::move::apply_height(70.0);
+    //     delay(500);
+    //     crab_core::move::apply_height(110.0);
+    //     delay(500);
+    // }
+
+    // crab_core::move::lay_down();
+
+    // crab_core::move::trunk_mode();
 }
 
 void loop() {
