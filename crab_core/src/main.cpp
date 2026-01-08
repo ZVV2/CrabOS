@@ -62,17 +62,6 @@ void setup() {
 
     delay(1000);
     crab_core::move::stand_up();
-
-    // for (uint8_t i = 0; i < 4; i++) {
-    //     crab_core::move::apply_height(70.0);
-    //     delay(500);
-    //     crab_core::move::apply_height(110.0);
-    //     delay(500);
-    // }
-
-    // crab_core::move::lay_down();
-
-    // crab_core::move::trunk_mode();
 }
 
 void loop() {

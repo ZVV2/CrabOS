@@ -21,14 +21,52 @@ namespace crabsy {
 
         return Seg2Angles {
             sigma + alpha,
-            gamma - atan2f(CRABSY_LEG_Y3, CRABSY_LEG_X3) - PI
+            gamma - atan2f(CRABSY_LEG_Y3, CRABSY_LEG_X3) - (float)PI
         };
     }
 
     Seg2Coords get_coords_seg2(Seg2Angles angles) {
         return {
-            CRABSY_LEG_X2 * cosf(angles.ang2) + CRABSY_LEG_Y2 * -sinf(angles.ang2) + CRABSY_LEG_X3 * cosf(angles.ang2 + angles.ang3) + CRABSY_LEG_Y3 * -sinf(angles.ang2 + angles.ang3),
-            CRABSY_LEG_X2 * sinf(angles.ang2) + CRABSY_LEG_Y2 * cosf(angles.ang2) + CRABSY_LEG_X3 * sinf(angles.ang2 + angles.ang3) + CRABSY_LEG_Y3 * cosf(angles.ang2 + angles.ang3)
+            CRABSY_LEG_X2 * cosf(angles.ang2) 
+                + CRABSY_LEG_Y2 * -sinf(angles.ang2) 
+                + CRABSY_LEG_X3 * cosf(angles.ang2 + angles.ang3) 
+                + CRABSY_LEG_Y3 * -sinf(angles.ang2 + angles.ang3),
+            CRABSY_LEG_X2 * sinf(angles.ang2) 
+                + CRABSY_LEG_Y2 * cosf(angles.ang2) 
+                + CRABSY_LEG_X3 * sinf(angles.ang2 + angles.ang3) 
+                + CRABSY_LEG_Y3 * cosf(angles.ang2 + angles.ang3)
         };
+    }
+
+    Seg3Angles get_angles_seg3(Seg3Coords coords) {
+        // Convert coordinates
+        float x = coords.r;
+        float y = coords.h;
+        float z = coords.d;
+
+        // Get real length of foot viewed from above
+        float c = sqrt(x*x + z*z);
+        // Get angle viewed from above, coordinates are switched to get mathematically correct angle direction
+        float ang1 = atan2f(z, x);
+
+        // Get angles for section
+        Seg2Angles seg2_ang = get_angles_seg2(Seg2Coords { 
+            c, y
+        });
+
+        return Seg3Angles {
+            ang1,
+            seg2_ang.ang2,
+            seg2_ang.ang3
+        };
+    }
+
+    Seg3Coords get_coords_seg3(Seg3Angles angles) {
+        Seg2Coords seg2_coords = get_coords_seg2(Seg2Angles {
+            angles.ang2,
+            angles.ang3
+        });
+
+        
     }
 }
